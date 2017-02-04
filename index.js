@@ -16,16 +16,24 @@ rl.question("Please enter a filename: ", (answer) => {
     console.log('The filename is: ' + answer);
     inputFileName = answer;
     rl.close();
+    copyFile(inputFileName);
     writeFileToConsole(inputFileName);
 });
 
  var writeFileToConsole = function(inFile){
      //fs.createWriteStream("out.html")
      fs.readFile(inFile, function(err, content) {
-        console.log(content.);    
+        // console.log(content.);    
      });
  };
 
+var copyFile = function(inFile) {
+    fs.readFile(inFile, function(err, content) {
+        fs.writeFile(inFile + "_copy", content, function(err) {
+            console.log("copy complete");
+        });
+    });
+};
 
 http.createServer( function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
