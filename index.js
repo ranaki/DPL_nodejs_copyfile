@@ -21,10 +21,12 @@ rl.question("Please enter a filename: ", (answer) => {
 });
 
  var writeFileToConsole = function(inFile){
-     //fs.createWriteStream("out.html")
-     fs.readFile(inFile, function(err, content) {
-        // console.log(content.);    
-     });
+    var myLines = require('fs')
+                    .readFileSync(inFile)
+                    .toString()
+                    .match(/^.+$/gm);
+
+    console.log(myLines);
  };
 
 var copyFile = function(inFile) {
