@@ -20,7 +20,7 @@ rl.question("Please enter a filename: ", (answer) => {
     writeFileToConsole(inputFileName);
 });
 
- var writeFileToConsole = function(inFile){
+ var writeFileToConsole = (inFile) => {
     var myLines = require('fs')
                     .readFileSync(inFile)
                     .toString()
